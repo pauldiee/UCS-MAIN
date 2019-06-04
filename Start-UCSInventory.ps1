@@ -56,7 +56,7 @@ if ($check -eq "Y") {
         $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force | ConvertFrom-SecureString
         
         $string = "$($ip),$($filename).html,$($username),$($SecurePassword)"
-        Tee-Object -InputObject $string .\UCSINPUT.csv -Append
+        Tee-Object -InputObject $string .\UCSINPUT.csv -Append | Out-Null
     
         #write-host $check
         $check = Read-Host "Add another UCSM Domain? Y = Yes, N = No"
